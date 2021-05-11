@@ -10,6 +10,9 @@ public class Persona {
     private String contrasenia;
     private String imagen;
 
+    public Persona() {
+    }
+
     public Persona(String cedula_persona, String nombre_persona, String apellido_persona, String celular_persona, String correo_persona, String usuario, String contrasenia, String imagen) {
         this.cedula_persona = cedula_persona;
         this.nombre_persona = nombre_persona;
