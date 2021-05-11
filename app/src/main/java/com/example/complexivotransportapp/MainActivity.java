@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         txtContrasenia=findViewById(R.id.txtContrasenia);
         ingresar=findViewById(R.id.btnIngresar);
         crearCuenta=findViewById(R.id.crearCuenta);
-
+//a
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
