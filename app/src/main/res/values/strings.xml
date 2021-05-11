@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name" translatable="false">ComplexivoTransportApp</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="cedula">Cédula</string>
+    <string name="nombre">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="direccion">Direccion</string>
+    <string name="celular">Celular</string>
+    <string name="correo">Correo</string>
+    <string name="anadir">Agregar Imagen</string>
+    <string name="infoRegistro">Información de Registro</string>
+    <string name="crearCuenta">¿No tienes cuenta? Regístrate.</string>
+    <string name="tipoUsuario">Tipo Usuario</string>
+    <string name="botonUsuario">Usuario</string>
+    <string name="botonTransportista">Transportista</string>
+    <string name="botonRegsitro">Registrarse</string>
+    <string name="userName">Nombre Usuario</string>
+    <string name="pass">Contraseña</string>
+</resources>

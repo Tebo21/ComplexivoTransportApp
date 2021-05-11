@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ingresar">Sign in</string>
+    <string name="cedula">ID</string>
+    <string name="nombre">FirstName</string>
+    <string name="apellidos">Lastname</string>
+    <string name="direccion">Address</string>
+    <string name="celular">Phone</string>
+    <string name="correo">Email</string>
+    <string name="anadir">Add Image</string>
+    <string name="infoRegistro">Sign up</string>
+    <string name="crearCuenta">You don´t have account? Sign in</string>
+    <string name="tipoUsuario">User Type</string>
+    <string name="botonUsuario">User</string>
+    <string name="botonRegsitro">Sing up</string>
+    <string name="botonTransportista">Driver</string>
+    <string name="userName">Username</string>
+    <string name="pass">Password</string>
+</resources>
