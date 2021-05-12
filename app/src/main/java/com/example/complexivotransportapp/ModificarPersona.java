@@ -46,11 +46,13 @@ public class ModificarPersona extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BaseSQLHelper superHelper=new BaseSQLHelper(getApplicationContext());
-                Persona persona=new Persona(modificaCedula.getText().toString(),modificaImagen.getText().toString(),modificaNombre.getText().toString(),modificaApellido.getText().toString(),modificaCelular.getText().toString(),modificaCorreo.getText().toString(),modificaUsuario.getText().toString(),modificaContrasenia.getText().toString());
+                Persona persona=new Persona(modificaCedula.getText().toString(),modificaNombre.getText().toString(),modificaApellido.getText().toString(),modificaCorreo.getText().toString(),modificaCelular.getText().toString(),modificaUsuario.getText().toString(),modificaContrasenia.getText().toString(),modificaImagen.getText().toString());
                 String sentencia=superHelper.ModificaPer(persona);
                 if(sentencia==null){
                     Toast.makeText(getApplicationContext(),"Modificación Exitosa",Toast.LENGTH_LONG).show();
                     finish();
+                    Intent intent  =new Intent(getApplicationContext(),Listar.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"ERROR " +sentencia,Toast.LENGTH_LONG).show();
                 }

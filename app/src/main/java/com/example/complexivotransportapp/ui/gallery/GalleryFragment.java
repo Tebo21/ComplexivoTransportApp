@@ -25,7 +25,6 @@ import com.example.complexivotransportapp.Listar;
 import com.example.complexivotransportapp.Modelo.Persona;
 import com.example.complexivotransportapp.ModificarPersona;
 import com.example.complexivotransportapp.R;
-import com.example.complexivotransportapp.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
@@ -40,7 +39,7 @@ public class GalleryFragment extends Fragment {
                 new ViewModelProvider(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
         ListView listView=root.findViewById((R.id.listViewPersona));
-        String[] from =new String[]{"cedulaPersona"};
+        String[] from =new String[]{"usuario"};
         int[] hasta = new int[]{android.R.id.text1};
         Cursor cursor = Persona.getCursor(getContext());
         CursorAdapter cursorAdapter = new SimpleCursorAdapter(
