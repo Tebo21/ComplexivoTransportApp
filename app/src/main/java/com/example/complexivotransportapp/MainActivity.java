@@ -3,6 +3,7 @@ package com.example.complexivotransportapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.complexivotransportapp.Modelo.BaseSQLHelper;
+import com.example.complexivotransportapp.Modelo.Persona;
 
 public class MainActivity extends AppCompatActivity {
     private TextView txtUsuario;
@@ -30,13 +32,11 @@ public class MainActivity extends AppCompatActivity {
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String usuario=txtUsuario.getText().toString();
-                String contrasenia=txtContrasenia.getText().toString();
-                BaseSQLHelper superHelper=new BaseSQLHelper(getApplicationContext());
-                if(superHelper.listaPersonas(usuario,contrasenia)==true){
-                    Toast.makeText(getApplicationContext(),"Login True",Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(),"no mame",Toast.LENGTH_LONG).show();
+                Cursor cursor = Persona.logeo(getApplicationContext(), txtUsuario.getText().toString(), txtUsuario.getText().toString());
+                if(cursor.getCount()>0){
+                    Toast.makeText(getApplicationContext(), "Siiiiu", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Nooou", Toast.LENGTH_LONG).show();
                 }
             }
         });

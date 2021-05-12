@@ -1,67 +1,70 @@
 package com.example.complexivotransportapp.Modelo;
 
+import android.content.Context;
+import android.database.Cursor;
+
 public class Persona {
-    private String cedula_persona;
-    private String nombre_persona;
-    private String apellido_persona;
-    private String celular_persona;
-    private String correo_persona;
+    private String cedulaPersona;
+    private String nombrePersona;
+    private String apellidoPersona;
+    private String correoPersona;
+    private String celularPersona;
     private String usuario;
     private String contrasenia;
-    private String imagen;
+    private String imagenPersona;
 
     public Persona() {
     }
 
-    public Persona(String cedula_persona, String nombre_persona, String apellido_persona, String celular_persona, String correo_persona, String usuario, String contrasenia, String imagen) {
-        this.cedula_persona = cedula_persona;
-        this.nombre_persona = nombre_persona;
-        this.apellido_persona = apellido_persona;
-        this.celular_persona = celular_persona;
-        this.correo_persona = correo_persona;
+    public Persona(String cedulaPersona, String nombrePersona, String apellidoPersona, String correoPersona, String celularPersona, String usuario, String contrasenia, String imagenPersona) {
+        this.cedulaPersona = cedulaPersona;
+        this.nombrePersona = nombrePersona;
+        this.apellidoPersona = apellidoPersona;
+        this.correoPersona = correoPersona;
+        this.celularPersona = celularPersona;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
-        this.imagen = imagen;
+        this.imagenPersona = imagenPersona;
     }
 
-    public String getCedula_persona() {
-        return cedula_persona;
+    public String getCedulaPersona() {
+        return cedulaPersona;
     }
 
-    public void setCedula_persona(String cedula_persona) {
-        this.cedula_persona = cedula_persona;
+    public void setCedulaPersona(String cedulaPersona) {
+        this.cedulaPersona = cedulaPersona;
     }
 
-    public String getNombre_persona() {
-        return nombre_persona;
+    public String getNombrePersona() {
+        return nombrePersona;
     }
 
-    public void setNombre_persona(String nombre_persona) {
-        this.nombre_persona = nombre_persona;
+    public void setNombrePersona(String nombrePersona) {
+        this.nombrePersona = nombrePersona;
     }
 
-    public String getApellido_persona() {
-        return apellido_persona;
+    public String getApellidoPersona() {
+        return apellidoPersona;
     }
 
-    public void setApellido_persona(String apellido_persona) {
-        this.apellido_persona = apellido_persona;
+    public void setApellidoPersona(String apellidoPersona) {
+        this.apellidoPersona = apellidoPersona;
     }
 
-    public String getCelular_persona() {
-        return celular_persona;
+    public String getCorreoPersona() {
+        return correoPersona;
     }
 
-    public void setCelular_persona(String celular_persona) {
-        this.celular_persona = celular_persona;
+    public void setCorreoPersona(String correoPersona) {
+        this.correoPersona = correoPersona;
     }
 
-    public String getCorreo_persona() {
-        return correo_persona;
+    public String getCelularPersona() {
+        return celularPersona;
     }
 
-    public void setCorreo_persona(String correo_persona) {
-        this.correo_persona = correo_persona;
+    public void setCelularPersona(String celularPersona) {
+        this.celularPersona = celularPersona;
     }
 
     public String getUsuario() {
@@ -80,11 +83,11 @@ public class Persona {
         this.contrasenia = contrasenia;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImagenPersona() {
+        return imagenPersona;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImagenPersona(String imagenPersona) {
+        this.imagenPersona = imagenPersona;
     }
 }

@@ -38,18 +38,26 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
 
     }
 
+    public void noQuery(String sql){
+        this.getWritableDatabase().execSQL(sql);
+    }
+
+    public Cursor query(String sql){
+        return this.getReadableDatabase().rawQuery(sql, null);
+    }
+
     public String insertaPersona(Persona persona) {
         String SQLi = "";
         SQLi += "insert into Persona (cedulaPersona,nombrePersona,apellidoPersona,correoPersona,celularPersona,usuario,contrasenia,imagenPersona)";
         SQLi += " values (";
-        SQLi += "'" + persona.getCedula_persona() + "'";
-        SQLi += ",'" + persona.getNombre_persona() + "'";
-        SQLi += ",'" + persona.getApellido_persona() + "'";
-        SQLi += ",'" + persona.getCorreo_persona() + "'";
-        SQLi += ",'" + persona.getCelular_persona() + "'";
+        SQLi += "'" + persona.getCedulaPersona() + "'";
+        SQLi += ",'" + persona.getNombrePersona() + "'";
+        SQLi += ",'" + persona.getApellidoPersona() + "'";
+        SQLi += ",'" + persona.getCorreoPersona() + "'";
+        SQLi += ",'" + persona.getCelularPersona() + "'";
         SQLi += ",'" + persona.getUsuario() + "'";
         SQLi += ",'" + persona.getContrasenia() + "'";
-        SQLi += ",'" + persona.getImagen() + "'";
+        SQLi += ",'" + persona.getImagenPersona() + "'";
         SQLi += ")";
         try {
             this.getWritableDatabase().execSQL(SQLi);
@@ -61,48 +69,11 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
     }
 
     //RECUPERAR PERSONAS
-    public boolean listaPersonas(String usuario,String contrasenia) {
+    public Cursor listaPersonas() {
         Cursor cursor;
-        Persona pe= new Persona();
         String SQLC = "select ROWID as _id,* from Persona";
         cursor = this.getReadableDatabase().rawQuery(SQLC, null);
-        List<Persona> lp=new ArrayList<>();
-        for(int i=0;i<cursor.getCount();i++){
-            pe.setUsuario(cursor.getColumnName(6));
-            pe.setContrasenia(cursor.getColumnName(7));
-            lp.add(pe);
-            if(lp.get(i).getUsuario().equals(usuario) && lp.get(i).getContrasenia().equals(contrasenia)){
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
-
-    //Login
-    public void login(String usuario, String contrasenia) {
-/*
-            SQLiteDatabase db=this.getReadableDatabase();
-            String[] parametros={usuario,contrasenia};
-            try {
-
-                Cursor cursor=db.rawQuery("SELECT "+Persona.usuario+","+Persona.getContrasenia+
-                        " FROM "+Utilidades.TABLA_USUARIO+" WHERE "+Utilidades.CAMPO_ID+"= ? or "+Utilidades.CAMPO_NOMBRE+"=?  ",parametros);
-                cursor.moveToFirst();
-                System.out.println("cursor"+cursor);
-                if(cursor.getCount()>0){
-                    Toast.makeText(null,"Registro Exitoso",Toast.LENGTH_LONG).show();
-                    return true;
-                }else {
-                    Toast.makeText(null,"Registro Exitoso not",Toast.LENGTH_LONG).show();
-                    return false;
-                }
-
-            }catch (Exception e){
-                db.close();
-                return false;
-            }
-*/
+        return cursor;
     }
 
     //VERIFICAR ARCHIVO
@@ -133,8 +104,6 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
         miOutput.close();
         miInput.close();
     }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
