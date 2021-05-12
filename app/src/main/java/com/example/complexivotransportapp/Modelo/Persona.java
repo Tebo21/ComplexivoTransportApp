@@ -90,4 +90,11 @@ public class Persona {
     public void setImagenPersona(String imagenPersona) {
         this.imagenPersona = imagenPersona;
     }
+
+    public static Cursor logeo(Context context, String usuario, String contrasenia){
+        BaseSQLHelper baseSQLHelper = new BaseSQLHelper(context);
+        String sql="SELECT * FROM Persona p WHERE p.usuario = '"+usuario+"' and p.contrasenia = '"+contrasenia+"';";
+        return baseSQLHelper.query(sql);
+    }
+
 }
