@@ -2,6 +2,7 @@ package com.example.complexivotransportapp.Modelo;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 
 public class Persona {
     private String cedulaPersona;
@@ -96,5 +97,39 @@ public class Persona {
         String sql="SELECT * FROM Persona p WHERE p.usuario = '"+usuario+"' and p.contrasenia = '"+contrasenia+"';";
         return baseSQLHelper.query(sql);
     }
+
+    public static Cursor getCursor(Context context){
+        BaseSQLHelper baseSQLHelper = new BaseSQLHelper(context);
+        String sql="select _rowid_ as _id, * from Persona";
+        return  baseSQLHelper.query(sql);
+    }
+
+    public static Cursor eliminaPersona(Context context,String cedulaPersona) {
+        BaseSQLHelper baseSQLHelper = new BaseSQLHelper(context);
+        String SQLi = "";
+        SQLi += "delete from Persona ";
+        SQLi += " where cedulaPersona='" + cedulaPersona + "'";
+        return baseSQLHelper.query(SQLi);
+    }
+    public static Cursor modificaPersona(Context context,Persona persona) {
+        BaseSQLHelper baseSQLHelper = new BaseSQLHelper(context);
+        String SQLi = "";
+        SQLi += "UPDATE Persona SET nombrePersona =" + " '" + persona.getNombrePersona()
+                + "' ,apellidoPersona='" + persona.getApellidoPersona()
+                + "' ,correoPersona='" + persona.getCorreoPersona()
+                + "' ,celularPersona='" + persona.getCelularPersona()
+                + "',usuario='" + persona.getUsuario()
+                + "' ,contrasenia='" + persona.getContrasenia()
+                + "' ,imagenPersona='" + persona.getImagenPersona()
+                + "' WHERE cedulaPersona = '" + persona.getCedulaPersona() + "'";
+        return baseSQLHelper.query(SQLi);
+    }
+
+    public static Cursor getModificado(Context context,String cedulaPersona){
+        BaseSQLHelper baseSQLHelper = new BaseSQLHelper(context);
+        String sql="select _rowid_ as _id, * from Persona WHERE cedulaPersona ='"+cedulaPersona+"'";
+        return  baseSQLHelper.query(sql);
+    }
+
 
 }

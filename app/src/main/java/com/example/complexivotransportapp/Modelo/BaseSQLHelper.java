@@ -46,6 +46,28 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
         return this.getReadableDatabase().rawQuery(sql, null);
     }
 
+    public String ModificaPer(Persona persona) {
+        String SQLi = "";
+        SQLi += "UPDATE Persona SET nombrePersona =" + " '" + persona.getNombrePersona()
+                + "' ,apellidoPersona='" + persona.getApellidoPersona()
+                + "' ,correoPersona='" + persona.getCorreoPersona()
+                + "' ,celularPersona='" + persona.getCelularPersona()
+                + "',usuario='" + persona.getUsuario()
+                + "' ,contrasenia='" + persona.getContrasenia()
+                + "' ,imagenPersona='" + persona.getImagenPersona()
+                + "' WHERE cedulaPersona = '" + persona.getCedulaPersona() + "'";
+
+        try {
+            this.getWritableDatabase().execSQL(SQLi);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return ex.getMessage();
+        }
+        return null;
+
+
+    }
+
     public String insertaPersona(Persona persona) {
         String SQLi = "";
         SQLi += "insert into Persona (cedulaPersona,nombrePersona,apellidoPersona,correoPersona,celularPersona,usuario,contrasenia,imagenPersona)";
@@ -66,6 +88,21 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
             return ex.getMessage();
         }
         return null;
+    }
+    //ELIMINA PERSONA
+    public String eliminaPersona(String cedulaPersona) {
+        String SQLi = "";
+        SQLi += "delete from Persona ";
+        SQLi += " where cedulaPersona='" + cedulaPersona + "'";
+        try {
+            this.getWritableDatabase().execSQL(SQLi);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return ex.getMessage();
+        }
+        return null;
+
+
     }
 
     //RECUPERAR PERSONAS

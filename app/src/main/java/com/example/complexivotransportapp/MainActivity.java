@@ -32,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor cursor = Persona.logeo(getApplicationContext(), txtUsuario.getText().toString(), txtUsuario.getText().toString());
+                Cursor cursor = Persona.logeo(getApplicationContext(), txtUsuario.getText().toString(), txtContrasenia.getText().toString());
                 if(cursor.getCount()>0){
                     Toast.makeText(getApplicationContext(), "Siiiiu", Toast.LENGTH_LONG).show();
+                    Intent intent  =new Intent(getApplicationContext(),Listar.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Nooou", Toast.LENGTH_LONG).show();
                 }
