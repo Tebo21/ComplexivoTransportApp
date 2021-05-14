@@ -8,23 +8,23 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.complexivotransportapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Listado Horarios"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.complexivotransportapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="Listado de Usuarios"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.complexivotransportapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Listado de Vehiculos"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/listadoWS"
         android:name="com.example.complexivotransportapp.ui.listadoWs.ListadoWS"
-        android:label="listado_w_fragment"
-        tools:layout="@layout/listado_w_fragment" />
+        android:label="Listado Web Service + SQLite"
+        tools:layout="@layout/fragment_web" />
 </navigation>

@@ -22,6 +22,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.complexivotransportapp.Listar;
+import com.example.complexivotransportapp.Modelo.Horario;
 import com.example.complexivotransportapp.Modelo.Persona;
 import com.example.complexivotransportapp.ModificarPersona;
 import com.example.complexivotransportapp.R;

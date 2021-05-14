@@ -66,6 +66,7 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
                 for(Horario hor:response.body()){
                     horarios.add("Hora de Inicio: "+hor.getHoraInicio()+"\nHora de Salida: "+hor.getHoraFin());
+                    //SE VA GUARDANDO EN LA BASE
                     superHelper.guardarHorario(hor);
                 }
                 arrayAdapter.notifyDataSetChanged();

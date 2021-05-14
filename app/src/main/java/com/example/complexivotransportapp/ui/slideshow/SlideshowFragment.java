@@ -17,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.complexivotransportapp.Modelo.Vehiculo;
 import com.example.complexivotransportapp.R;
 import com.example.complexivotransportapp.VehiculoServicio;
-import com.example.complexivotransportapp.databinding.FragmentSlideshowBinding;
 
 import java.util.ArrayList;
 import java.util.List;
