@@ -89,6 +89,25 @@ public class BaseSQLHelper extends SQLiteOpenHelper {
         }
         return null;
     }
+    public String guardarHorario(Horario horario){
+        String SQLi = "";
+        SQLi += "insert into Horario (idHorario,horaInicio,horaFin)";
+        SQLi += " values (";
+        SQLi += "'" + horario.getIdHorario() + "'";
+        SQLi += ",'" + horario.getHoraInicio() + "'";
+        SQLi += ",'" + horario.getHoraFin() + "'";
+        SQLi += ")";
+        try {
+            this.getWritableDatabase().execSQL(SQLi);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return ex.getMessage();
+        }
+        return null;
+    }
+
+
+
     //ELIMINA PERSONA
     public String eliminaPersona(String cedulaPersona) {
         String SQLi = "";

@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.complexivotransportapp.HorarioService;
+import com.example.complexivotransportapp.Modelo.BaseSQLHelper;
 import com.example.complexivotransportapp.Modelo.Horario;
 import com.example.complexivotransportapp.Modelo.Vehiculo;
 import com.example.complexivotransportapp.R;
@@ -33,6 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+
     ListView listView;
     ArrayList<String> horarios = new ArrayList<>();
     ArrayAdapter arrayAdapter;
@@ -58,11 +60,13 @@ public class HomeFragment extends Fragment {
                 .build();
         HorarioService horService=retrofit.create(HorarioService.class);
         Call<List<Horario>> call=horService.getHorarios();
+        BaseSQLHelper superHelper= new BaseSQLHelper(getContext());
         call.enqueue(new Callback<List<Horario>>() {
             @Override
             public void onResponse(Call<List<Horario>> call, Response<List<Horario>> response) {
                 for(Horario hor:response.body()){
                     horarios.add("Hora de Inicio: "+hor.getHoraInicio()+"\nHora de Salida: "+hor.getHoraFin());
+                    superHelper.guardarHorario(hor);
                 }
                 arrayAdapter.notifyDataSetChanged();
             }

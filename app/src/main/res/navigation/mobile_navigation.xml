@@ -22,4 +22,9 @@
         android:name="com.example.complexivotransportapp.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/listadoWS"
+        android:name="com.example.complexivotransportapp.ui.listadoWs.ListadoWS"
+        android:label="listado_w_fragment"
+        tools:layout="@layout/listado_w_fragment" />
 </navigation>
